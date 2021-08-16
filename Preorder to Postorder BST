@@ -1,0 +1,26 @@
+Node* insert(Node *head, int data)
+{
+    if(head==NULL)
+    {
+    Node *n=new Node();
+    n->data=data;
+    return n;
+    }
+    
+    if(head->data>data)
+    head->left=insert(head->left,data);
+    
+    if(head->data<data)
+    head->right=insert(head->right,data);
+    return head;
+}
+Node* constructTree(int pre[], int size)
+{
+    //code here
+    Node *head=NULL;
+    
+    for(int i=0;i<size;i++)
+    head=insert(head,pre[i]);
+    
+    return head;
+}
